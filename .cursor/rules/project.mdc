@@ -1,0 +1,15 @@
+---
+description: mainfactory monorepo context for AI agents
+alwaysApply: true
+---
+
+# mainfactory
+
+OpenComputers (Minecraft) TCP bridge in Go + MES prototype in Python on Postgres. Deployed to k3s.
+
+- handlers/cmd/bot-handler, handlers/cmd/server-handler - separate Dockerfiles, shared handlers/internal/
+- mes/migrations/ - Postgres SQL; apply with mes/scripts/migrate.py and DATABASE_URL
+- mes/tests/lua/ - luasocket simulators for bots/servers (not Minecraft)
+- deploy/k3s/ - postgres, bot-handler, server-handler
+
+Keep changes minimal. No SQLite. See AGENTS.md and README.md for details.
